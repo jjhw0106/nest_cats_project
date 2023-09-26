@@ -12,12 +12,15 @@ import {
   Post,
   Put,
   UseFilters,
+  UseInterceptors,
 } from '@nestjs/common';
 import { HttpExceptionFilter } from 'src/http-exception.filter';
 import { PoistiveIntPipe } from 'src/common/pipes/positiveInt.pipe';
+import { SuccessInterceptor } from 'src/common/interceptors/success.interceptor';
 
 // https://docs.nestjs.com/exception-filters#built-in-http-exceptions
 @UseFilters(HttpExceptionFilter)
+@UseInterceptors(SuccessInterceptor)
 @Controller('cats')
 export class CatsController {
   constructor(private readonly CatsService: CatsService) {}
@@ -26,7 +29,7 @@ export class CatsController {
   @Get()
   getAllCat() {
     try {
-      throw error;
+      return { cats: "all cats"}
     } catch (err) {
       throw new HttpException('the page is null!', 401);
     }

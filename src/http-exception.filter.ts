@@ -10,7 +10,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const status = exception.getStatus();
     const error = exception.getResponse() as
       | string
-      | { error: string; statusCode: number; message: "qnpf" | string[]};  
+      | { error: string; statusCode: number; message: "httpException!" | string[]};  
     
 
     if (typeof error === 'string') {
