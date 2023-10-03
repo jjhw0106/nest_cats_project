@@ -10,7 +10,7 @@ import { HttpExceptionFilter } from './http-exception.filter';
 export class AppController {
   constructor(
     private readonly appService: AppService,
-    private readonly catsService: CatsService,
+    // private readonly catsService: CatsService,
   ) {}
 
   @Get()
