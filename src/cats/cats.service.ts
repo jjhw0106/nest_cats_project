@@ -13,6 +13,7 @@ export class CatsService {
     @InjectModel(Cat.name) 
     private readonly catModel: Model<Cat>) {}
   async signUp(body: CatRequestDto) {
+    console.log('singUP!!!');
     const { email, name, password } = body;
     const isCatExist = await this.catModel.exists({ email });
 

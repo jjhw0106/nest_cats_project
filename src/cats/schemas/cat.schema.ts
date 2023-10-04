@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory, } from "@nestjs/mongoose";
+import { ApiProperty } from "@nestjs/swagger";
 import { IsEmail, IsNotEmpty, IsString } from "class-validator";
 import mongoose, { Document, SchemaOptions, } from "mongoose";
 
@@ -14,6 +15,11 @@ const options: SchemaOptions = {
 
 @Schema(options)
 export class Cat extends Document {
+  @ApiProperty({
+    example: 'ddd@kakao.com',
+    description: 'email',
+    required: true,
+  })
   @Prop({
     required: true,
     unique: true,
@@ -22,6 +28,11 @@ export class Cat extends Document {
   @IsNotEmpty()
   email: string
   
+  @ApiProperty({
+    example: '디디디',
+    description: 'name',
+    required: true,
+  })
   @Prop({
     required: true,
   })
@@ -29,6 +40,11 @@ export class Cat extends Document {
   @IsNotEmpty()
   name: string
   
+  @ApiProperty({
+    example: '1234',
+    description: 'password',
+    required: true,
+  })
   @Prop({
     required: true,
   })
@@ -36,10 +52,14 @@ export class Cat extends Document {
   @IsNotEmpty()
   password: string
   
-  @Prop()
-  @IsString()
-  @IsNotEmpty()
-  imgUrl: string
+  // @ApiProperty({
+  //   example: '.com',
+  //   description: 'uri',
+  //   required: true,
+  // })
+  // @Prop()
+  // @IsString()
+  // imgUrl: string
 
   readonly readOnlyData: {id: string; email: string, name: string};
 }

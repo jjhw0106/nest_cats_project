@@ -1,25 +1,13 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty, PickType } from "@nestjs/swagger";
 import { IsEmail, IsNotEmpty, IsString } from "class-validator";
+import { Cat } from "../schemas/cat.schema";
 
-export class ReadOnlyCatDto {
+// Cat 스키마를 상속받으면 password도 가져오기 때문에, 그 것을 방지하기 위해 PickType 을 상속받는다.
+export class ReadOnlyCatDto extends PickType(Cat, ['email','name'] as const) {
   @ApiProperty({
-    example: 'ddd',
-    description: 'ID',
+    example: '12320',
+    description: 'id',
     required: true,
   })
   id: string;
-
-  @ApiProperty({
-    example: 'ddd@kakao.com',
-    description: 'email',
-    required: true,
-  })
-  email: string;
-  
-  @ApiProperty({
-    example: '디디디',
-    description: 'name',
-    required: true,
-  })
-  name: string;
 }

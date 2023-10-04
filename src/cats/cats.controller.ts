@@ -35,15 +35,15 @@ export class CatsController {
   //   console.log(id)
   //   return 'one cat';
   // }
-  @ApiResponse({
-    status: 500,
-    description: 'Server Error...'
-  })
-  @ApiResponse({
-    status: 200,
-    description: 'Connection Success!',
-    type: ReadOnlyCatDto
-  })
+  // @ApiResponse({
+  //   status: 500,
+  //   description: 'Server Error...'
+  // })
+  // @ApiResponse({
+  //   status: 200,
+  //   description: 'Connection Success!',
+  //   type: ReadOnlyCatDto
+  // })
 
   @ApiOperation({summary: '현재 고양이 가져오기'})
   @Get()
