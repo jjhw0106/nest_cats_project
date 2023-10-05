@@ -8,6 +8,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { config } from 'process';
 import mongoose from 'mongoose';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ConfigModule } from '@nestjs/config';
       process.env.MONGO_DB
     ),
     CatsModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

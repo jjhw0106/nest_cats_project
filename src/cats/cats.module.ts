@@ -5,6 +5,7 @@ import { AppService } from 'src/app.service';
 import { DatabaseModule } from 'src/database/database.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Cat, CatSchema } from './schemas/cat.schema';
+import { CatsRepository } from './cats.repository';
 // import { catsProviders } from './cats.provider';
 
 @Module({
@@ -12,6 +13,7 @@ import { Cat, CatSchema } from './schemas/cat.schema';
   controllers: [CatsController,],
   providers: [
     CatsService,
+    CatsRepository,
     // ...catsProviders
   ],
   exports: [CatsService],

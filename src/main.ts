@@ -22,6 +22,7 @@ async function bootstrap() {
   const document: OpenAPIObject = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
   // 다른 사이트에서 접근이 가능하게 할건지 (CORS 찾아보기)
+  // ex) 내가 만든 프론트에서만 접근이 가능해야한다. -> 배포시에는 origin: false로
   app.enableCors({
     origin: true,
     credentials: true
